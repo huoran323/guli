@@ -2,8 +2,10 @@ package com.guli.teacher.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.guli.common.result.Result;
+import com.guli.common.result.ResultCode;
 import com.guli.teacher.entity.EduTeacher;
 import com.guli.teacher.entity.TeacherQuery.TeacherQuery;
+import com.guli.teacher.exception.EduException;
 import com.guli.teacher.service.EduTeacherService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -85,6 +87,9 @@ public class EduTeacherController {
     ) {
         try {
             EduTeacher teacher = teacherService.getById(id);
+            if (teacher == null) {
+                throw new EduException(ResultCode.EDU_ID_ERROR,"没有此讲师信息");
+            }
             return Result.ok().data("teacher", teacher);
         } catch (Exception e) {
             e.printStackTrace();
