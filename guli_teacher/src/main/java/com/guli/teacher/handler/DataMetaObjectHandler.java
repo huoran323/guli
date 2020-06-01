@@ -11,7 +11,7 @@ public class DataMetaObjectHandler implements MetaObjectHandler {
     @Override
     public void insertFill(MetaObject metaObject) {
         this.setFieldValByName("gmtCreate", new Date(), metaObject);
-        this.setFieldValByName("isDeleted", 0, metaObject);
+        this.setFieldValByName("isDeleted", false, metaObject);
         this.setFieldValByName("gmtModified", new Date(), metaObject);
     }
 
