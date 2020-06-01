@@ -14,7 +14,16 @@ public class EduException extends RuntimeException {
 
     @ApiModelProperty(value = "状态码")
     private Integer code;
+
     @ApiModelProperty(value = "异常消息")
     private String msg;
 
+
+    @Override
+    public String toString() {
+        return "EduException{" +
+                "message=" + this.getMsg() +
+                ", code=" + code +
+                '}';
+    }
 }

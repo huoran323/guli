@@ -87,9 +87,6 @@ public class EduTeacherController {
     ) {
         try {
             EduTeacher teacher = teacherService.getById(id);
-            if (teacher == null) {
-                throw new EduException(ResultCode.EDU_ID_ERROR,"没有此讲师信息");
-            }
             return Result.ok().data("teacher", teacher);
         } catch (Exception e) {
             e.printStackTrace();
